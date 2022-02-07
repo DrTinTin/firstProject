@@ -1,6 +1,7 @@
 package com.day4;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.Comparator;
 import java.util.function.Consumer;
