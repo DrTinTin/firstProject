@@ -1,6 +1,7 @@
 package com.day7;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -22,5 +23,12 @@ public class CollectionTest {
     coll2.add(9909);
     coll.addAll(coll2);
     System.out.println(coll.isEmpty());
+    coll.contains(123);
+    coll.remove(123); // 移除所有的123
+    Collection coll3 = Arrays.asList(123, 234, 455);
+    System.out.println(coll3.hashCode());
+    Object[] arr = coll.toArray();
+    var list2 = Arrays.asList(new Integer[]{1,2,3});
+    System.out.println(list2);
   }
 }
