@@ -115,9 +115,39 @@ class Graph {
     stack.push(node); // push this node into the stack after visiting all its neighbours
   }
 
-  public boolean hasCycle(){
+  public boolean hasCycle() {
     Set<Node> all = new HashSet<>();
     all.addAll(nodes.values());
 
+    Set<Node> visiting = new HashSet<>();
+    Set<Node> visited = new HashSet<>();
+
+    while (!all.isEmpty()) {
+      var current = all.iterator().next();
+      if (hasCycle(current, all, visiting, visited)) {
+        return true;
+      }
+      ;
+    }
+    return false;
+  }
+
+  private boolean hasCycle(Node node, Set<Node> all, Set<Node> visiting, Set<Node> visited) {
+    all.remove(node);
+    visiting.add(node);
+    for (var neighbour : edges.get(node)) {
+      if (visited.contains(neighbour)) {
+        continue;
+      }
+      if (visiting.contains(neighbour)) {
+        return true;
+      }
+      if (hasCycle(neighbour, all, visiting, visited)) {
+        return true;
+      }
+    }
+    visiting.remove(node);
+    visited.add(node);
+    return false;
   }
 }
