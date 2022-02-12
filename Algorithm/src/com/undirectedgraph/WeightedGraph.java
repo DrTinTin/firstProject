@@ -178,7 +178,7 @@ public class WeightedGraph {
           edges.add(edge);
         }
       }
-      return tree;
     }
+    return tree;
   }
 }
